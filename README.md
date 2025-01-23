@@ -4,7 +4,7 @@ Libary market app
 
 ## RFs (requisitos funcionais)
 
-- [ ] deve ser possivel se cadastrar
+- [X] deve ser possivel se cadastrar
 - [ ] deve ser possivel se autenticar
 - [ ] deve ser possivel obter um perfil de um usuario logado
 - [ ] deve ser possivel cadastrar um livro
@@ -20,7 +20,7 @@ Libary market app
 
 ## RNs (regras de negócio)
 
-- [ ] o usuário não pode se cadastrar com um e-mail duplicado
+- [X] o usuário não pode se cadastrar com um e-mail duplicado
 - [ ] um livro só pode ser apagado ou editado pelo autor ou um admin
 - [ ] 
 - [ ] 
