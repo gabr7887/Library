@@ -5,8 +5,8 @@ Libary market app
 ## RFs (requisitos funcionais)
 
 - [X] deve ser possivel se cadastrar
-- [ ] deve ser possivel se autenticar
-- [ ] deve ser possivel obter um perfil de um usuario logado
+- [X] deve ser possivel se autenticar
+- [X] deve ser possivel obter um perfil de um usuario logado
 - [ ] deve ser possivel cadastrar um livro
 - [ ] deve ser possivel editar as informações um livro
 - [ ] deve ser possivel deletar um livro
