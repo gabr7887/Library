@@ -5,6 +5,12 @@ import { randomUUID } from 'node:crypto'
 export class InMemoryBooksRepository implements BooksRepository {
   public items: Book[] = []
 
+  async searchManyByName(query: string, page: number) {
+    return this.items
+      .filter((item) => item.name.includes(query))
+      .slice((page - 1) * 20, page * 20)
+  }
+
   async findById(id: string): Promise<Book | null> {
     const book = this.items.find((item) => item.id === id)
 
