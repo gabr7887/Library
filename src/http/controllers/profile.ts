@@ -1,22 +1,17 @@
-export async function profile() {
-  // const registerBodySchema = z.object({
-  //   name: z.string(),
-  //   email: z.string().email(),
-  //   password: z.string().min(6),
-  // })
-  // const { name, email, password } = registerBodySchema.parse(request.body)
-  // try {
-  //   const registerUseCase = makeRegisterUseCase()
-  //   await registerUseCase.execute({
-  //     name,
-  //     email,
-  //     password,
-  //   })
-  // } catch (err) {
-  //   if (err instanceof UserAlreadExistsError) {
-  //     return reply.status(409).send()
-  //   }
-  //   return reply.status(500).send()
-  // }
-  // return reply.status(201).send()
+import { makeGetUserProfileUseCase } from '@/use-cases/factories/make-get-user-profile-use-case'
+import { FastifyReply, FastifyRequest } from 'fastify'
+
+export async function profile(request: FastifyRequest, reply: FastifyReply) {
+  const getUserProfile = makeGetUserProfileUseCase()
+
+  const { user } = await getUserProfile.execute({
+    userId: request.user.sub,
+  })
+
+  return reply.status(200).send({
+    user: {
+      ...user,
+      password_hash: undefined,
+    },
+  })
 }
