@@ -1,6 +1,6 @@
 # App
 
-Libary market app
+Libary app
 
 ## RFs (requisitos funcionais)
 
@@ -10,7 +10,7 @@ Libary market app
 - [X] deve ser possivel cadastrar um livro
 - [X] deve ser possivel obter um livro
 - [X] deve ser possivel ver livros por pesquisa de nome
-- [ ] deve ser possivel deletar um livro
+
 
 ## RNs (regras de negócio)
 
