@@ -3,6 +3,7 @@ import { UserRoutes } from './http/controllers/users/userRoutes'
 import { ZodError } from 'zod'
 import { env } from './env'
 import fastifyJwt from '@fastify/jwt'
+import { BooksRoutes } from './http/controllers/books/booksRoutes'
 
 export const app = fastify()
 
@@ -11,6 +12,7 @@ app.register(fastifyJwt, {
 })
 
 app.register(UserRoutes)
+app.register(BooksRoutes)
 
 app.setErrorHandler((error, _, reply) => {
   if (error instanceof ZodError) {
