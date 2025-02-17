@@ -7,11 +7,11 @@ export async function searchBooksById(
   request: FastifyRequest,
   reply: FastifyReply,
 ) {
-  const registerBodySchema = z.object({
+  const searchBodySchema = z.object({
     id: z.string(),
   })
 
-  const { id } = registerBodySchema.parse(request.body)
+  const { id } = searchBodySchema.parse(request.query)
 
   try {
     const searchBooksById = makeSearchBookByIdUseCase()

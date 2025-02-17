@@ -11,7 +11,7 @@ export async function searchBooks(
     page: z.coerce.number().min(1).default(1),
   })
 
-  const { query, page } = searchBooksBodySchema.parse(request.body)
+  const { query, page } = searchBooksBodySchema.parse(request.query)
 
   const searchBooksUseCase = makeSearchBooksUseCase()
 

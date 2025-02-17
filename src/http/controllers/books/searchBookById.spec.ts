@@ -55,8 +55,6 @@ describe('Search Book (e2e)', () => {
       .set('Authorization', `Bearer ${token}`)
       .send()
 
-    console.log(response.error)
-    console.log(response.body)
     expect(response.statusCode).toEqual(200)
   })
 })

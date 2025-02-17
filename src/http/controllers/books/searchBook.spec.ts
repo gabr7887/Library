@@ -30,34 +30,30 @@ describe('Search Book (e2e)', () => {
       },
     })
 
-    await request(app.server)
-      .post('/books')
-      .set('Authorization', `Bearer ${token}`)
-      .send({
+    await prisma.book.create({
+      data: {
         name: 'BookTest',
         user_id: user.id,
         category: category.category,
-      })
+      },
+    })
 
-    await request(app.server)
-      .post('/books')
-      .set('Authorization', `Bearer ${token}`)
-      .send({
+    const book = await prisma.book.create({
+      data: {
         name: 'BookTest',
         user_id: user.id,
         category: category.category,
-      })
+      },
+    })
 
     const response = await request(app.server)
       .get('/books/search')
       .query({
-        query: 'BookTest',
+        query: book.name,
       })
       .set('Authorization', `Bearer ${token}`)
       .send()
 
-    console.log(response.error)
-    console.log(response.body)
     expect(response.statusCode).toEqual(200)
     expect(response.body.books).toHaveLength(2)
   })
